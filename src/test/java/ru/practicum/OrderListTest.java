@@ -9,7 +9,7 @@ import org.junit.Test;
 import ru.practicum.client.OrderClient;
 import ru.practicum.model.OrderResponse;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @Epic("Заказы")
 @Feature("Получение списка заказов")
@@ -30,5 +30,6 @@ public class OrderListTest {
                 .extract().as(OrderResponse.class);
 
         assertNotNull(response.getOrders());
+        assertFalse(response.getOrders().isEmpty());
     }
 }
